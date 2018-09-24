@@ -1,11 +1,8 @@
 package rinetd;
-
-import rinetd.core.Listener;
-import rinetd.pojo.AddrAndPort;
-
+import rinetd.pojo.TransferLink;
 public class Main {
     public static void main(String []args) {
-        AddrAndPort addrAndPort = new AddrAndPort();
+        TransferLink addrAndPort = new TransferLink();
         addrAndPort.setSoAddr("10.10.1.43");
         addrAndPort.setSoPort(6379);
         addrAndPort.setDeAddr("192.168.199.255");

@@ -1,37 +1,20 @@
 package rinetd.pojo;
 
+//包装ip和端口
 public class AddrAndPort {
-    private String  soAddr  = null;
-    private Integer soPort  = null;
-	private String  deAddr  = null;
-    private Integer dePort  = null;
-	public String getSoAddr() {
-		return soAddr;
+    private String  ip;
+    private Integer port;
+	public String getIp() {
+		return ip;
 	}
-	public void setSoAddr(String soAddr) {
-		this.soAddr = soAddr;
+	public void setIp(String ip) {
+		this.ip = ip;
 	}
-	public Integer getSoPort() {
-		return soPort;
+	public Integer getPort() {
+		return port;
 	}
-	public void setSoPort(Integer soPort) {
-		this.soPort = soPort;
-	}
-	public String getDeAddr() {
-		return deAddr;
-	}
-	public void setDeAddr(String deAddr) {
-		this.deAddr = deAddr;
-	}
-	public Integer getDePort() {
-		return dePort;
-	}
-	public void setDePort(Integer dePort) {
-		this.dePort = dePort;
+	public void setPort(Integer port) {
+		this.port = port;
 	}
     
-	public String toString() {
-		return "["+this.soAddr + ":" + this.soPort +
-				","+this.deAddr + ":"+this.dePort + "]";
-	}//toString
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import rinetd.pojo.AddrAndPort;
+import rinetd.pojo.TransferLink;
 
 public class IpUtil {
     public static List<String> getIpList(){
@@ -40,7 +40,7 @@ public class IpUtil {
     }//getIpList
     
     //从[host:port,host:port]解析出host和端口
-    public static AddrAndPort parseAddrAndPort(String row) {
+    public static TransferLink parseAddrAndPort(String row) {
     	row = row.substring(1, row.length() - 1);
     	String [] datas = row.split(",|:");
     	System.out.println(datas.length);
@@ -49,5 +49,6 @@ public class IpUtil {
     
     public static void main(String []args) {
     	parseAddrAndPort("[ 0.0.0.0 : 8888 ,  1.1.1.1:9999   ]");
+    	
     }//main
 }//class IpUtil
