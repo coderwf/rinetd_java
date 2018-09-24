@@ -5,9 +5,11 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 
+import rinetd.exceptions.ParseException;
 import rinetd.pojo.TransferLink;
 
 public class IpUtil {
@@ -40,15 +42,25 @@ public class IpUtil {
     }//getIpList
     
     //从[host:port,host:port]解析出host和端口
-    public static TransferLink parseAddrAndPort(String row) {
+    public static TransferLink parseTransferLink(String row) {
+    	//去空格
+    	row = row.replaceAll("\\s+","");
+    	//去括号
     	row = row.substring(1, row.length() - 1);
+    	//去分隔符
     	String [] datas = row.split(",|:");
-    	System.out.println(datas.length);
-    	return null;
+    	if(datas.length != 4)
+    		throw new ParseException(row, "incorrect form ");
+    	TransferLink tLink = new TransferLink();
+    	tLink.setSoAddr(datas[0]);
+    	tLink.setSoPort(Integer.valueOf(datas[1]));
+    	tLink.setDeAddr(datas[2]);
+    	tLink.setDePort(Integer.valueOf(datas[3]));
+    	return tLink;
     }//
     
     public static void main(String []args) {
-    	parseAddrAndPort("[ 0.0.0.0 : 8888 ,  1.1.1.1:9999   ]");
-    	
+    	String row = "  [ -2.0.0.0 : 44444 ,  1.1.1.1:9999   ] ";
+    	System.out.println(parseTransferLink(row));
     }//main
 }//class IpUtil
