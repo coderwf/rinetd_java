@@ -60,7 +60,7 @@ public class IpUtil {
     }//
     
     public static void main(String []args) {
-    	String row = "  [ -2.0.0.0 : 44444 ,  1.1.1.1:9999   ] ";
+    	String row = "  [ 0.0.0.0 : 4444 ,  1.1.1.1:9999   ] ";
     	System.out.println(parseTransferLink(row));
     }//main
 }//class IpUtil
